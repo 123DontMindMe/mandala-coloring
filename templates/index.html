@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Mandala Coloring</title>
+		<link href="/static/images/mandala_icon.png" rel="icon">
+		<link href="/static/styles.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<h1 style="text-align: center; padding-top: 10px; -webkit-text-stroke: thin white; color: rgba(255, 255, 255, 0.2)">
+			Super-Ultra-Relaxing Hyper-Chill Mandala Coloring™
+		</h1>
+
+		<div class="options-container" style="left: 60px;">
+			<h3>Outlines</h3>
+			<!--
+			https://www.pngall.com/mandala-png/download/83886
+			https://www.pngitem.com/middle/ihxhhb_transparent-white-mandala-png-mandala-coloring-sheets-for/
+			http://clipart-library.com/coloring/jcxp7RMMi.png
+			http://clipart-library.com/clip-art/mandala-png-transparent-1.htm
+			https://commons.wikimedia.org/wiki/File:Mandala_52.svg
+			https://www.pngall.com/mandala-png/download/83911
+			-->
+			<div id="outlines">
+				<div class="outline-image outline-image-add">
+					<div class="outline-image-plus"></div>
+					<img src="/static/images/mandala1.png" alt="mandala outline 1">
+				</div>
+				<div class="outline-image outline-image-add">
+					<div class="outline-image-plus"></div>
+					<img src="/static/images/mandala2.png" alt="mandala outline 2">
+				</div>
+				<div class="outline-image outline-image-add">
+					<div class="outline-image-plus"></div>
+					<img src="/static/images/mandala3.png" alt="mandala outline 3">
+				</div>
+				<div class="outline-image outline-image-add">
+					<div class="outline-image-plus"></div>
+					<img src="/static/images/mandala4.png" alt="mandala outline 4">
+				</div>
+				<div class="outline-image outline-image-add">
+					<div class="outline-image-plus"></div>
+					<img src="/static/images/mandala5.png" alt="mandala outline 5">
+				</div>
+				<div class="outline-image outline-image-add">
+					<div class="outline-image-plus"></div>
+					<img src="/static/images/mandala6.png" alt="mandala outline 6">
+				</div>
+			</div>
+
+			<h3 style="margin-top: 30px">Drawings</h3>
+			<div id="saved"></div>
+		</div>
+
+		<div class="options-container" style="right: 60px">
+			<h3>Coloring Mode</h3>
+			<div class="coloring-mode-button coloring-mode-button-selected" id="free-hand-button">
+				<img src="/static/images/brush.png" alt="fill icon" class="coloring-mode-button-img">
+				<p class="coloring-mode-button-text">Free-hand</p>
+			</div>
+			<div class="coloring-mode-button" id="sectioned-button">
+				<img src="/static/images/dashed_triangle.png" alt="fill icon" class="coloring-mode-button-img">
+				<p class="coloring-mode-button-text">Sectioned</p>
+			</div>
+			<div class="coloring-mode-button" id="fill-button">
+				<img src="/static/images/paint_bucket.svg" alt="fill icon" class="coloring-mode-button-img">
+				<p class="coloring-mode-button-text">Fill</p>
+			</div>
+			<br>
+
+			<h3 style="margin-top: 40px">Stroke Width</h3>
+			<label>
+				<input id="stroke-width" type="range" min="1" max="40" step="0.1" value="5" width="100px" class="slider"
+				       style="--size: 5px; --color: black;">
+			</label>
+
+			<h3 style="margin-top: 40px">Color Pallete</h3>
+			<label>
+				<input id="stroke-color" type="color"> Stroke Color
+			</label>
+			<input id="erase-button" type="checkbox" class="checkbox" style="margin-left: 30px;">
+			<label for="erase-button">Erase</label>
+			<img src="/static/images/eraser.png" alt="eraser icon"
+			     style="width: 20px; height: 20px; vertical-align: middle; margin-left: 2px; padding-bottom: 3px">
+
+			<img id="undo-button" class="history-button history-button-disabled"
+			     src="/static/images/undo_button.png" alt="undo button"
+			     style="bottom: 10px; right: 90px;">
+			<img id="redo-button" class="history-button history-button-disabled"
+			     src="/static/images/undo_button.png" alt="redo button"
+			     style="bottom: 10px; right: 10px; transform: scaleX(-1)">
+		</div>
+
+		<div id="canvas-container">
+			<img id="canvas-outline-img" src="/static/images/mandala1.png" alt="mandala" style="z-index: 3">
+			<canvas id="section-canvas" width="600" height="600" style="z-index: 2"></canvas>
+			<canvas id="canvas" width="600" height="600" style="z-index: 1"></canvas>
+		</div>
+		<canvas id="outline-canvas" width="600" height="600" style="display: none"></canvas>
+		<canvas id="stroke-canvas" width="600" height="600" style="display: none"></canvas>
+	</body>
+
+	<script src="/static/index.js"></script>
+	<script src="/static/background.js"></script>
+</html>
